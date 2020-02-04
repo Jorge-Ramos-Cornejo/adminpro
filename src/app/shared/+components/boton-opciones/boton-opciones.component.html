@@ -1,0 +1,23 @@
+<div id="fab-dismiss" *ngIf="fabTogglerState === 'active'" (click)="onToggleFab()"></div>
+
+<div class="fab-container">
+    <button mat-fab class="fab-toggler" (click)="onToggleFab()">
+    <!-- <i  [@fabToggler]="{value: fabTogglerState}"> -->
+    <img
+      [@fabToggler]="{ value: fabTogglerState }"
+      src="assets/layout/images/iconos/logo.png"
+      style="border-radius: 50%;"
+      width="60px"
+      height="60px"
+      alt=""
+    />
+    <!-- </i> -->
+  </button>
+    <div [@speedDialStagger]="buttons.length">
+        <button *ngFor="let btn of buttons; let i = index" mat-mini-fab class="fab-secondary" color="secondary" [style.backgroundColor]="btn.color ? btn.color : 'white'" [style.display]="btn.visible ? 'block' : 'none'" [matTooltip]="btn.title" matTooltipPosition="left"
+            (click)="retornarId(i)" style="width: 50px; height: 50px;">
+      <mat-icon [svgIcon]="btn.icon">
+      </mat-icon>
+    </button>
+    </div>
+</div>
