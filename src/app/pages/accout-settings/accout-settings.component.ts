@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 
-import { SettingsService } from '../../services/services.index';
+import { SettingsService } from 'src/app/shared/+services/services.index';
 
 @Component({
   selector: 'app-accout-settings',

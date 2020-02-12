@@ -1,0 +1,57 @@
+.title {
+    font-weight: bold;
+}
+
+.example-headers-align .mat-expansion-panel-header-description {
+    justify-content: flex-end;
+    align-items: center;
+}
+
+mat-panel-title {
+    text-align: center;
+    align-items: center;
+}
+
+.no-events {
+    pointer-events: none;
+}
+
+.default {
+    pointer-events: auto;
+}
+
+.mat-expansion-panel-header {
+    background-color: #009efb !important;
+}
+
+.mat-expansion-panel-header:hover {
+    background-color: #009efb !important;
+}
+
+.img-circle {
+    border: ridge rgba(0, 0, 0, .14);
+}
+
+.contenedor {
+    float: left;
+    box-sizing: border-box;
+    padding: .5em;
+    width: 100%;
+}
+
+.desabilitar-color {
+    background-color: rgba(0, 0, 0, .14);
+}
+
+.mat-expansion-panel-header-title {
+    color: white;
+}
+
+.archivo {
+    border: 2px dashed teal;
+    border-radius: 15px;
+    min-height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

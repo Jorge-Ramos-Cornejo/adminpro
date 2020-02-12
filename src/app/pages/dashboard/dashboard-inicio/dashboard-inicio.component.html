@@ -1,49 +1,56 @@
 <div class="container-fluid">
-    <div class="row ">
-        <!-- <div class="col-12 col-md-12 col-sm-12 col-lg-12 col-xl-12">
-            <div class="row">
-                <div class="col-12 col-md-12 col-sm-10 col-lg-10 col-xl-10"></div>
-                <div class="col-12 col-md-12 col-sm-2 col-lg-2 col-xl-2">
-                    <button mat-raised-button color="primary" matTooltip="Buscar">
-                    <mat-icon>add</mat-icon> Nuevo expediente
-                 </button>
-
+    <div class="row">
+        <div class="col-lg-3">
+            <div class="card bg-info">
+                <div class="card-body">
+                    <div class="d-flex no-block">
+                        <div class="m-r-20 align-self-center"><img src="assets/images/icon/income-w.png" alt="Income" /></div>
+                        <div class="align-self-center">
+                            <h6 class="text-white m-t-10 m-b-0">Nº Expedientes</h6>
+                            <h2 class="m-t-0 text-white">953,000</h2>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <br>
-        </div> -->
-        <div class="col-12 col-md-12 col-sm-12 col-lg-12 col-xl-12">
-            <div class="row justify-content-center">
-                <h4>Listado de expedientes</h4>
+        </div>
+        <div class="col-lg-3">
+            <div class="card bg-success">
+                <div class="card-body">
+                    <div class="d-flex no-block">
+                        <div class="m-r-20 align-self-center"><img src="assets/images/icon/staff-w.png" alt="Income" /></div>
+                        <div class="align-self-center">
+                            <h6 class="text-white m-t-10 m-b-0">Personas Naturales</h6>
+                            <h2 class="m-t-0 text-white">236,000</h2>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="col-12 col-md-12 col-sm-12 col-lg-12 col-xl-12">
-            <div class="mat-elevation-z8">
-                <mat-table [dataSource]="listData" matSort>
-
-                    <ng-container matColumnDef="nombres">
-                        <mat-header-cell *matHeaderCellDef mat-sort-header>Nombres</mat-header-cell>
-                        <mat-cell *matCellDef="let lesson;">{{lesson.nombresApellidos}}</mat-cell>
-                    </ng-container>
-
-                    <ng-container matColumnDef="noData">
-                        <mat-footer-cell *matFooterCellDef colspan="2">
-                            No se encontraron registros.
-                        </mat-footer-cell>
-                    </ng-container>
-
-                    <mat-header-row *matHeaderRowDef="ColumnsPreferencial"></mat-header-row>
-
-                    <mat-row *matRowDef="let row; columns: ColumnsPreferencial;" (click)="select_row(row)" [style.background]="ArrayRows.indexOf(row) != -1 ? 'lightblue' : ''">
-                        <!-- <mat-row *matRowDef="let row; columns: ColumnsPreferencial;"> -->
-                    </mat-row>
-                    <mat-footer-row *matFooterRowDef="['noData']" [ngClass]="{'hide': !(listData!=null && listData.data.length==0)}"></mat-footer-row>
-                </mat-table>
-                <div class="mat-table__bottom">
-                    <mat-paginator [pageSizeOptions]="[5]" [pageSize]="5" showFirstLastButtons></mat-paginator>
+        <div class="col-lg-3">
+            <div class="card bg-primary">
+                <div class="card-body">
+                    <div class="d-flex no-block">
+                        <div class="m-r-20 align-self-center"><img src="assets/images/icon/staff-w.png" alt="Income" /></div>
+                        <div class="align-self-center">
+                            <h6 class="text-white m-t-10 m-b-0">Personas Juridicas</h6>
+                            <h2 class="m-t-0 text-white">987,563</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="card bg-danger">
+                <div class="card-body">
+                    <div class="d-flex no-block">
+                        <div class="m-r-20 align-self-center"><img src="assets/images/icon/expense-w.png" alt="Income" /></div>
+                        <div class="align-self-center">
+                            <h6 class="text-white m-t-10 m-b-0">Tramites Incompletos</h6>
+                            <h2 class="m-t-0 text-white">987,563</h2>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <app-boton-opciones [options]="FabOptions" (idButton)="clickOpcion($event)"></app-boton-opciones>
 </div>

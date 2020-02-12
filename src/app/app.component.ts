@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { SettingsService } from './services/services.index';
+import { SettingsService } from './shared/+services/services.index';
 import {IconosPersonalizadosComponent} from './shared/+components/iconos-personalizados/iconos-personalizados.component';
 
 @Component({

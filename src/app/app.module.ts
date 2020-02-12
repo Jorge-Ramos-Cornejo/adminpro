@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-
+import { SharedModule } from './shared/shared.module';
 // Rutas
 import { APP_ROUTES } from './app.routes';
 
@@ -11,7 +11,7 @@ import { APP_ROUTES } from './app.routes';
 import { PagesModule } from './pages/pages.module';
 
 // Servicios
-import { ServiceModule } from './services/service.module';
+import { ServiceModule } from './shared/+services/service.module';
 
 // Componentes
 import { AppComponent } from './app.component';
@@ -29,6 +29,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   ],
   imports: [
     BrowserModule,
+    SharedModule.forRoot(),
     HttpClientModule,
     PagesModule,
     APP_ROUTES,

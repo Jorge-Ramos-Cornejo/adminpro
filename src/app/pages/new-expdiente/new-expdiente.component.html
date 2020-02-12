@@ -1,0 +1,216 @@
+<div class="container-fluid" style="font-family: Roboto, 'Helvetica Neue', sans-serif;">
+    <div class="row">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+            <div class="row">
+                <div class="col-12 col-sm-12 col-md-2 col-lg-2 col-xl-2">
+                    <div class="card">
+                        <div class="container">
+                            <br>
+                            <div class="row justify-content-center">
+                                <img class="img-circle" [src]="fotoUrl ? fotoUrl : logo" alt="IMAGEN" height="140px" width="110px" />
+                            </div>
+                            <br />
+                            <div class="row">
+                                <label class="title">Nombre:</label>
+                            </div>
+                            <div class="row">
+                                <label style="width:100%; word-wrap: break-word;">
+                      Jorge</label>
+                                <!-- <label style="width:100%; word-wrap: break-word;">
+                      {{ datosgenerales ? datosgenerales.nombres : '' }}</label -->
+
+                            </div>
+                            <br />
+                            <div class="row">
+                                <label class="title">Apellidos:</label>
+                            </div>
+                            <div class="row">
+                                <label style="width:100%; word-wrap: break-word;">
+                        Ramos Cornejo
+                      <!-- {{ datosgenerales ? datosgenerales.apellidoPaterno : '' }}
+                      {{ datosgenerales ? datosgenerales.apellidoMaterno : '' }} -->
+                    </label>
+                            </div>
+                            <br />
+                            <div class="row">
+                                <label class="title">Domicilio Fiscal:</label>
+                            </div>
+                            <div class="row">
+                                <label style="width:100%; word-wrap: break-word;">
+                        Calle Tacna N° 541
+                      <!-- {{ datosgenerales ? datosgenerales.domFiscal : '' }} -->
+                    </label>
+                            </div>
+                            <br />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-12 col-md-10 col-lg-10 col-xl-10">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                <form [formGroup]="frmExpediente" novalidate>
+                                    <mat-accordion class="example-headers-align">
+                                        <mat-expansion-panel expanded="0" hideToggle>
+                                            <mat-expansion-panel-header>
+                                                <mat-panel-title>
+                                                    Datos del solicitante (*)
+                                                </mat-panel-title>
+                                                <mat-panel-description>
+                                                    <img src="assets/layout/images/iconos/user-information.svg" width="40px" height="35px" />
+                                                </mat-panel-description>
+                                            </mat-expansion-panel-header>
+                                            <!-- contenido -->
+
+                                            <div class="contenedor">
+                                                <div class="row justify-content-center mt-3">
+                                                    <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                                        <div class="row justify-content-center mt-2">
+                                                            <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+                                                                <mat-form-field class="full-width">
+                                                                    <mat-select placeholder="Tipo persona (*)" formControlName="tipoPersona">
+                                                                        <mat-option *ngFor="let item of TipoPersona" [value]="item.value">
+                                                                            {{ item.label }}
+                                                                        </mat-option>
+                                                                    </mat-select>
+                                                                    <mat-error>Tipo persona (*)<strong>
+                                                                es obligatorio.</strong
+                                                              ></mat-error
+                                                            >
+                                                            <mat-hint align="start" *ngIf="!getTipoPersonaInput.value"
+                                                              >Por Favor seleccione <strong>Tipo persona  </strong>
+                                                                        </mat-hint>
+                                                                </mat-form-field>
+                                                            </div>
+                                                            <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+                                                                <mat-form-field class="full-width">
+                                                                    <mat-select placeholder="Tipo Documento (*)" formControlName="tipoDocumento">
+                                                                        <mat-option *ngFor="let item of TipoPersona" [value]="item.value">
+                                                                            {{ item.label }}
+                                                                        </mat-option>
+                                                                    </mat-select>
+                                                                    <mat-error>Tipo Documento (*)<strong>
+                                                                es obligatorio.</strong
+                                                              ></mat-error
+                                                            >
+                                                            <mat-hint align="start" *ngIf="!getTipoDocumentoInput.value"
+                                                              >Por Favor seleccione <strong>Tipo Documento  </strong>
+                                                                        </mat-hint>
+                                                                </mat-form-field>
+                                                            </div>
+                                                            <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+                                                                <mat-form-field class="full-width">
+                                                                    <input matInput formControlName="documento" placeholder="Documento" autocomplete="off">
+                                                                    <mat-error>Documento (*)<strong>
+                                                                es obligatorio.</strong
+                                                              ></mat-error
+                                                            >
+                                                            <mat-hint align="start" *ngIf="!getDocumentoInput.value"
+                                                              >Por Favor ingrese <strong>Documento  </strong>
+                                                                        </mat-hint>
+                                                                </mat-form-field>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row justify-content-center mt-2">
+                                                            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                                                <mat-form-field class="full-width desabilitar-color">
+                                                                    <input [readonly]="true" matInput formControlName="nombres" placeholder="Nombres" autocomplete="off">
+                                                                </mat-form-field>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row justify-content-center mt-2">
+                                                            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                                                <mat-form-field class="full-width desabilitar-color">
+                                                                    <input [readonly]="true" matInput formControlName="direccion" placeholder="Direccion" autocomplete="off">
+                                                                </mat-form-field>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row justify-content-center mt-2">
+                                                            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                                                                <mat-form-field class="full-width desabilitar-color">
+                                                                    <input [readonly]="true" matInput formControlName="telefono" placeholder="Telefono" autocomplete="off">
+                                                                </mat-form-field>
+                                                            </div>
+                                                            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                                                                <mat-form-field class="full-width desabilitar-color">
+                                                                    <input [readonly]="true" matInput formControlName="correo" placeholder="Correo" autocomplete="off">
+                                                                </mat-form-field>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </mat-expansion-panel>
+                                        <mat-divider></mat-divider>
+                                        <mat-expansion-panel hideToggle>
+                                            <mat-expansion-panel-header>
+                                                <mat-panel-title>
+                                                    Datos del expediente (*)
+                                                </mat-panel-title>
+                                                <mat-panel-description>
+                                                    <img src="assets/layout/images/iconos/file.svg" width="40px" height="35px" />
+                                                </mat-panel-description>
+                                            </mat-expansion-panel-header>
+                                            <div class="contenedor">
+                                                <div class="row">
+                                                    <div class="col-12 col-sm-12 col-md-7 col-lg-7 col-xl-7">
+                                                        <mat-form-field class="full-width">
+                                                            <mat-select placeholder="Tipo Documento (*)" formControlName="exp_TipoDocumento">
+                                                                <mat-option *ngFor="let item of expTiposDocumento" [value]="item.value">
+                                                                    {{ item.label }}
+                                                                </mat-option>
+                                                            </mat-select>
+                                                            <mat-error>Tipo Documento (*)<strong>
+                                                        es obligatorio.</strong
+                                                      ></mat-error
+                                                    >
+                                                    <mat-hint align="start" *ngIf="!getExpTipoDocumentoInput.value"
+                                                      >Por Favor seleccione <strong>Tipo Documento  </strong>
+                                                                </mat-hint>
+                                                        </mat-form-field>
+                                                    </div>
+                                                    <div class="col-12 col-sm-12 col-md-5 col-lg-5 col-xl-5">
+                                                        <mat-form-field class="full-width">
+                                                            <input type="number" min="1" step="1" matInput formControlName="folios" placeholder="Nº folios" autocomplete="off" (keydown)="onEnterPressed($event)">
+                                                        </mat-form-field>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                                        <mat-form-field class="full-width">
+                                                            <input matInput formControlName="asunto" placeholder="Asunto" autocomplete="off">
+                                                        </mat-form-field>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </mat-expansion-panel>
+                                        <mat-divider></mat-divider>
+                                        <mat-expansion-panel hideToggle>
+                                            <mat-expansion-panel-header>
+                                                <mat-panel-title>
+                                                    Archivo (*)
+                                                </mat-panel-title>
+                                                <mat-panel-description>
+                                                    <img src="assets/layout/images/iconos/file.svg" width="40px" height="35px" />
+                                                </mat-panel-description>
+                                            </mat-expansion-panel-header>
+                                            <div class="contenedor">
+                                                <div class="row justify-content-center">
+                                                    <div class="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8 archivo">
+                                                        <button mat-raised-button>Subir Archivo</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </mat-expansion-panel>
+                                    </mat-accordion>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

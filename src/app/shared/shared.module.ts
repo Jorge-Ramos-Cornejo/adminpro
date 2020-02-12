@@ -11,8 +11,9 @@ import { RouterModule } from '@angular/router';
 import {MatFormFieldModule, MatInputModule, MatToolbarModule,
 MatTableModule, MatPaginatorModule, MatProgressSpinnerModule,
 MatButtonModule, MatIconModule, MatTooltipModule, MatButtonToggleModule,
-MatBadgeModule} from '@angular/material';
-import {FormsModule} from '@angular/forms';
+MatBadgeModule, MatExpansionModule, MatSelectModule, MatDividerModule} from '@angular/material';
+import {FormsModule, ReactiveFormsModule
+} from '@angular/forms';
 
 // components
 import { BotonOpcionesComponent } from './+components/boton-opciones/boton-opciones.component';
@@ -31,9 +32,13 @@ import { IconosPersonalizadosComponent } from './+components/iconos-personalizad
         MatButtonModule,
         MatIconModule,
         MatTableModule,
+        MatExpansionModule,
         MatToolbarModule,
         MatFormFieldModule,
-        FormsModule,        
+        MatDividerModule,
+        FormsModule,
+        MatSelectModule,
+        ReactiveFormsModule        
     ],
     declarations: [
         HeaderComponent,
@@ -51,16 +56,20 @@ import { IconosPersonalizadosComponent } from './+components/iconos-personalizad
         MatInputModule,
         MatBadgeModule,
         MatButtonToggleModule,
+        MatDividerModule,
         MatTooltipModule,
         MatIconModule,
         MatButtonModule,
+        MatExpansionModule,
         CommonModule,
         MatProgressSpinnerModule,
         MatPaginatorModule,
         MatTableModule,
         MatToolbarModule,
         MatFormFieldModule,
+        MatSelectModule,
         FormsModule,
+        ReactiveFormsModule,
         BotonOpcionesComponent
     ]
 })

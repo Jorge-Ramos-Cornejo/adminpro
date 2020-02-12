@@ -16,6 +16,8 @@ import { AccoutSettingsComponent } from './accout-settings/accout-settings.compo
 import { PromesasComponent } from './promesas/promesas.component';
 import { RxjsComponent } from './rxjs/rxjs.component';
 import { ProfileComponent } from './profile/profile.component';
+import { NewExpdienteComponent } from './new-expdiente/new-expdiente.component';
+import { BandejaComponent } from './bandeja/bandeja.component';
 
 
 @NgModule({
@@ -30,6 +32,8 @@ import { ProfileComponent } from './profile/profile.component';
       PromesasComponent,
       RxjsComponent,
       ProfileComponent,
+      NewExpdienteComponent,
+      BandejaComponent,
   ],
   exports: [
     DashboardInicioComponent,

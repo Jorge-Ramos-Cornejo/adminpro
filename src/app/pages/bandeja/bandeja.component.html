@@ -1,0 +1,37 @@
+<div class="container-fluid">
+    <div class="row ">
+        <div class="col-12 col-md-12 col-sm-12 col-lg-12 col-xl-12">
+            <div class="row justify-content-center">
+                <h4>Listado de expedientes</h4>
+            </div>
+        </div>
+        <div class="col-12 col-md-12 col-sm-12 col-lg-12 col-xl-12">
+            <div class="mat-elevation-z8">
+                <mat-table [dataSource]="listData" matSort>
+
+                    <ng-container matColumnDef="nombres">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header>Nombres</mat-header-cell>
+                        <mat-cell *matCellDef="let lesson;">{{lesson.nombresApellidos}}</mat-cell>
+                    </ng-container>
+
+                    <ng-container matColumnDef="noData">
+                        <mat-footer-cell *matFooterCellDef colspan="2">
+                            No se encontraron registros.
+                        </mat-footer-cell>
+                    </ng-container>
+
+                    <mat-header-row *matHeaderRowDef="ColumnsPreferencial"></mat-header-row>
+
+                    <mat-row *matRowDef="let row; columns: ColumnsPreferencial;" (click)="select_row(row)" [style.background]="ArrayRows.indexOf(row) != -1 ? 'lightblue' : ''">
+                        <!-- <mat-row *matRowDef="let row; columns: ColumnsPreferencial;"> -->
+                    </mat-row>
+                    <mat-footer-row *matFooterRowDef="['noData']" [ngClass]="{'hide': !(listData!=null && listData.data.length==0)}"></mat-footer-row>
+                </mat-table>
+                <div class="mat-table__bottom">
+                    <mat-paginator [pageSizeOptions]="[5]" [pageSize]="5" showFirstLastButtons></mat-paginator>
+                </div>
+            </div>
+        </div>
+    </div>
+    <app-boton-opciones [options]="FabOptions" (idButton)="clickOpcion($event)"></app-boton-opciones>
+</div>

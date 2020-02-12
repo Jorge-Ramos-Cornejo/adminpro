@@ -3,7 +3,7 @@
     <div class="col-lg-4 col-xlg-3 col-md-5">
         <div class="card">
             <div class="card-body">
-                <div align="center" class="m-t-30"> <img src="../assets/images/users/5.jpg" class="img-circle" width="150" />
+                <div align="center" class="m-t-30"> <img src="assets/images/users/5.jpg" class="img-circle" width="150" />
                     <h4 class="card-title m-t-10">Jorge Ramos Cornejo</h4>
                     <h6 class="card-subtitle">Jefe de Oficina Catastro</h6>
                     <!-- <div class="row text-center justify-content-md-center">
@@ -36,15 +36,49 @@
                 <div class="tab-pane active" id="home" role="tabpanel">
                     <div class="card-body">
                         <form [formGroup]="form">
-
+                            <div class="row">
+                                <div class="col-12 col-md-12 col-sm-6 col-lg-6 col-xl-6">
+                                    <mat-form-field class="full-width">
+                                        <input matInput placeholder="Usuario" formControlName="usuario" [readonly]="!editarEstado" autocomplete="off">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 col-md-12 col-sm-6 col-lg-6 col-xl-6">
+                                    <mat-form-field class="full-width">
+                                        <input [type]="hide ? 'password' : 'text'" matInput placeholder="Contraseña" formControlName="password" autocomplete="off" readonly="true">
+                                        <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row" *ngIf="editarEstado">
+                                <div class="col-12 col-md-12 col-sm-6 col-lg-6 col-xl-6">
+                                    <mat-form-field class="full-width">
+                                        <input type="password" matInput placeholder="Nueva Contraseña" formControlName="newPassword" autocomplete="off">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row" *ngIf="editarEstado">
+                                <div class="col-12 col-md-12 col-sm-6 col-lg-6 col-xl-6">
+                                    <mat-form-field class="full-width">
+                                        <input type="password" matInput placeholder="Repetir Contraseña" formControlName="repetirPassword" autocomplete="off">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 col-md-12 col-sm-6 col-lg-6 col-xl-6">
+                                    <div class="row justify-content-center">
+                                        <button style="width: 50%;" mat-button mat-raised-button (click)="editar()">Editar</button>
+                                    </div>
+                                </div>
+                            </div>
                         </form>
-                        <h6>Hola Mundo</h6>
                     </div>
                 </div>
                 <!--second tab-->
                 <div class="tab-pane" id="profile" role="tabpanel">
                     <div class="card-body">
-
+                        <app-accout-settings></app-accout-settings>
 
                     </div>
                 </div>
