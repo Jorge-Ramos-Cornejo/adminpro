@@ -19,6 +19,20 @@ export class SidebarService {
       submenu: [
       ]
     },
+    {
+      titulo: 'Consultas',
+      icono: 'mdi mdi-gauge',
+      url: '/consultas',
+      submenu: [
+      ]
+    },
+    {
+      titulo: 'Reportes',
+      icono: 'mdi mdi-gauge',
+      url: '/reportes',
+      submenu: [
+      ]
+    },
     // {
     //   titulo: 'Principal',
     //   icono: 'mdi mdi-gauge',

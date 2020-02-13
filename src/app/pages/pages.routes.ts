@@ -10,7 +10,8 @@ import { PromesasComponent } from './promesas/promesas.component';
 import { RxjsComponent } from './rxjs/rxjs.component';
 import {NewExpdienteComponent} from './new-expdiente/new-expdiente.component';
 import { BandejaComponent } from './bandeja/bandeja.component';
-
+import { ReportesComponent } from './reportes/reportes.component';
+import { ConsultasComponent } from './consultas/consultas.component';
 
 const pagesRoutes: Routes = [
     {path: '', 
@@ -18,6 +19,8 @@ const pagesRoutes: Routes = [
     children: [
           {path: 'dashboard', component: DashboardInicioComponent, data: {titulo: 'Dashboard'}},
           {path: 'bandeja', component: BandejaComponent, data: {titulo: 'Bandeja'}},
+          {path: 'reportes', component: ReportesComponent, data: {titulo: 'Reportes'}},
+          {path: 'consultas', component: ConsultasComponent, data: {titulo: 'Consultas'}},
           {path: 'newExpediente', component: NewExpdienteComponent, data: {titulo: 'Nuevo expediente'}},
           {path: 'profile', component: ProfileComponent, data: {titulo: 'Profile'}},
           {path: 'progress', component: ProgressComponent, data: {titulo: 'Progress'}},

@@ -18,6 +18,8 @@ import { RxjsComponent } from './rxjs/rxjs.component';
 import { ProfileComponent } from './profile/profile.component';
 import { NewExpdienteComponent } from './new-expdiente/new-expdiente.component';
 import { BandejaComponent } from './bandeja/bandeja.component';
+import { ReportesComponent } from './reportes/reportes.component';
+import { ConsultasComponent } from './consultas/consultas.component';
 
 
 @NgModule({
@@ -34,6 +36,8 @@ import { BandejaComponent } from './bandeja/bandeja.component';
       ProfileComponent,
       NewExpdienteComponent,
       BandejaComponent,
+      ReportesComponent,
+      ConsultasComponent,
   ],
   exports: [
     DashboardInicioComponent,
