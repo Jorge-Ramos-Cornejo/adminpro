@@ -1,0 +1,34 @@
+.inbox-panel .list-group .list-group-item {
+    border: 0px;
+    border-radius: 0px;
+    border-left: 3px solid transparent;
+}
+
+.inbox-panel .list-group .list-group-item a {
+    color: #67757c;
+}
+
+.inbox-panel .list-group .list-group-item.active,
+.inbox-panel .list-group .list-group-item:hover {
+    background: #e9edf2;
+    border-left: 3px solid #398bf7;
+}
+
+.inbox-panel {
+    .list-group {
+        .list-group-item {
+            border: 0px;
+            border-radius: 0px;
+            border-left: 3px solid transparent;
+            a {
+                color: #67757c;
+            }
+            &.active,
+            &:hover {
+                background: #e9edf2;
+                border-left: 3px solid #398bf7;
+            }
+            &:hover {}
+        }
+    }
+}
