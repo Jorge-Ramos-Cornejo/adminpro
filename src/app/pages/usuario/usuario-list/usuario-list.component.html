@@ -1,0 +1,81 @@
+<div class="card container-fluid">
+    <form [formGroup]="form">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+
+
+            <div class="row justify-content-end">
+
+                <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+                    <mat-form-field class="full-width">
+                        <input matInput formControlName="searchKey" autocomplete="off" placeholder="Buscar" class="mat-form-field mat-form-field-fluid" (keyup)="searchTable()">
+                        <mat-hint align="start">
+                            <strong>Buscar en todos los campos</strong>
+                        </mat-hint>
+                    </mat-form-field>
+                </div>
+
+                <!-- <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4" >
+              <button mat-raised-button color="primary" (click)="getMaimList()" matTooltip="Buscar">
+                  Buscar
+               </button>
+          </div> -->
+            </div>
+            <div class="row mt-3">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                    <div class="mat-table__wrapper">
+                        <mat-table class="lmat-elevation-z8" [dataSource]="listData" matSort>
+
+                            <ng-container matColumnDef="Area">
+                                <mat-header-cell *matHeaderCellDef mat-sort-header>Area</mat-header-cell>
+                                <mat-cell *matCellDef="let lesson;">{{lesson.Area}}</mat-cell>
+                            </ng-container>
+
+                            <ng-container matColumnDef="Responsable">
+                                <mat-header-cell *matHeaderCellDef mat-sort-header>Responsable</mat-header-cell>
+                                <mat-cell *matCellDef="let lesson;">{{lesson.Responsable}}</mat-cell>
+                            </ng-container>
+
+                            <ng-container matColumnDef="Activo">
+                                <mat-header-cell *matHeaderCellDef mat-sort-header>Activo</mat-header-cell>
+                                <mat-cell *matCellDef="let lesson;">{{ lesson.Activo }}</mat-cell>
+                            </ng-container>
+
+                            <ng-container matColumnDef="actions">
+                                <mat-header-cell *matHeaderCellDef>
+                                    Actions
+                                </mat-header-cell>
+                                <mat-cell *matCellDef="let lesson;">
+                                    <button style="color: #553c32 !important" (click)="open_modal_add(false,lesson.Area)" mat-icon-button color="primary" matTooltip="Editar Unidad Operativa">
+                                      <mat-icon>create</mat-icon>
+                                  </button>&nbsp;
+
+                                    <button mat-icon-button style="color: #F2242E !important" type="button" data-toggle="modal" (click)="eliminarActivar(lesson.Area)" matTooltip="Eliminar">
+                                      <mat-icon>delete</mat-icon>
+                                  </button>&nbsp;
+
+                                </mat-cell>
+                            </ng-container>
+
+                            <ng-container matColumnDef="noData">
+                                <mat-footer-cell *matFooterCellDef colspan="5">
+                                    No se encontraron registros.
+                                </mat-footer-cell>
+                            </ng-container>
+
+                            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+
+                            <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+                            <mat-footer-row *matFooterRowDef="['noData']" [ngClass]="{'hide': !(listData!=null && listData.data.length==0)}"></mat-footer-row>
+                        </mat-table>
+                    </div>
+                    <!-- start: BOTTOM -->
+                    <div class="mat-table__bottom">
+                        <mat-paginator [pageSizeOptions]="[5, 10, 50, 100, 200]" [pageSize]="5" showFirstLastButtons></mat-paginator>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </form>
+
+</div>

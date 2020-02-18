@@ -20,6 +20,8 @@ import { NewExpdienteComponent } from './new-expdiente/new-expdiente.component';
 import { BandejaComponent } from './bandeja/bandeja.component';
 import { ReportesComponent } from './reportes/reportes.component';
 import { ConsultasComponent } from './consultas/consultas.component';
+import { UsuarioListComponent } from './usuario/usuario-list/usuario-list.component';
+import { UsuarioAddUpdateComponent } from './usuario/usuario-add-update/usuario-add-update.component';
 
 
 @NgModule({
@@ -38,6 +40,8 @@ import { ConsultasComponent } from './consultas/consultas.component';
       BandejaComponent,
       ReportesComponent,
       ConsultasComponent,
+      UsuarioListComponent,
+      UsuarioAddUpdateComponent,
   ],
   exports: [
     DashboardInicioComponent,

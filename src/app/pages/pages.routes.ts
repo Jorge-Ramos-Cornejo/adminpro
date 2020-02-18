@@ -12,10 +12,13 @@ import {NewExpdienteComponent} from './new-expdiente/new-expdiente.component';
 import { BandejaComponent } from './bandeja/bandeja.component';
 import { ReportesComponent } from './reportes/reportes.component';
 import { ConsultasComponent } from './consultas/consultas.component';
+import { AuthGuard } from '../shared/+guards/auth.guard';
+import { UsuarioListComponent } from './usuario/usuario-list/usuario-list.component';
 
 const pagesRoutes: Routes = [
-    {path: '', 
+    {path: '',
     component: PagesComponent,
+    canActivate: [AuthGuard],
     children: [
           {path: 'dashboard', component: DashboardInicioComponent, data: {titulo: 'Dashboard'}},
           {path: 'bandeja', component: BandejaComponent, data: {titulo: 'Bandeja'}},
@@ -23,6 +26,7 @@ const pagesRoutes: Routes = [
           {path: 'consultas', component: ConsultasComponent, data: {titulo: 'Consultas'}},
           {path: 'newExpediente', component: NewExpdienteComponent, data: {titulo: 'Nuevo expediente'}},
           {path: 'profile', component: ProfileComponent, data: {titulo: 'Profile'}},
+          {path: 'usuarios', component: UsuarioListComponent, data: {titulo: 'Usuarios'}},
           {path: 'progress', component: ProgressComponent, data: {titulo: 'Progress'}},
           {path: 'graficas1', component: Graficas1Component, data: {titulo: 'Graficas'}},
           {path: 'promesas', component: PromesasComponent, data: {titulo: 'Promesas'}},

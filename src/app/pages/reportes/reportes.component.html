@@ -1,1 +1,33 @@
-<p>reportes works!</p>
+<div class="card container-fluid">
+    <form [formGroup]="form">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+            <div class="row justify-content-end">
+                <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+                    <mat-form-field class="mat-form-field-fluid">
+                        <input formControlName="filterFechaIni" [max]="maxDateIni" matInput [matDatepicker]="picker1" placeholder="Fecha Inicio" (dateChange)="loadFindingsFechaIni()">
+                        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                        <mat-datepicker #picker1></mat-datepicker>
+                        <mat-hint align="start">
+                            <strong>Filtro Fecha Inicio</strong>
+                        </mat-hint>
+                    </mat-form-field>
+                </div>
+                <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+                    <mat-form-field class="example-full-width">
+                        <input formControlName="filterFechaFin" [min]="minDateFin" [max]="maxDateFin" (dateChange)="loadFindingsFechaFin()" matInput [matDatepicker]="picker2" placeholder="Fecha Fin">
+                        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                        <mat-datepicker #picker2></mat-datepicker>
+                        <mat-hint align="start">
+                            <strong>Filtro Fecha Fin</strong>
+                        </mat-hint>
+                    </mat-form-field>
+                </div>
+                <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4" style="    align-items: center;
+                display: flex;">
+                    <button mat-raised-button color="primary" (click)="searchListFindings()">Buscar</button>
+                </div>
+
+            </div>
+        </div>
+    </form>
+</div>

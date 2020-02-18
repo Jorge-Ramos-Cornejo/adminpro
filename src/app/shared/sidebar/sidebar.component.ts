@@ -23,19 +23,6 @@ export class SidebarComponent implements OnInit {
     return menu;
   }
 
- async verificar(menu) {
-    document.getElementById(menu).setAttribute('ng-reflect-router-link-active', '/dashboard');
-    document.getElementById(menu).setAttribute('routerLinkActive', 'active');
-    document.getElementById(menu).setAttribute('href', '#/dashboard');
-  }
-
-  jorge() {
-    this.router.navigate(['dashboard']);
-    document.getElementById('menu0').setAttribute('routerLinkActive', 'active');
-    document.getElementById('menu0').setAttribute('ng-reflect-router-link-active', 'active');
-    this.router.isActive('dasboard', true);
-    
-  }
 
   cerrarSesionYSalir() {
     localStorage.clear();

@@ -23,3 +23,7 @@ body {
 .cdk-focused {
     outline: aliceblue !important;
 }
+
+.container-message {
+    z-index: 2147483627;
+}

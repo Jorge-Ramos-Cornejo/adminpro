@@ -11,7 +11,7 @@ import { RouterModule } from '@angular/router';
 import {MatFormFieldModule, MatInputModule, MatToolbarModule,
 MatTableModule, MatPaginatorModule, MatProgressSpinnerModule,
 MatButtonModule, MatIconModule, MatTooltipModule, MatButtonToggleModule,
-MatBadgeModule, MatExpansionModule, MatSelectModule, MatDividerModule} from '@angular/material';
+MatBadgeModule, MatExpansionModule, MatSelectModule, MatDividerModule, MatDatepickerModule} from '@angular/material';
 import {FormsModule, ReactiveFormsModule
 } from '@angular/forms';
 
@@ -37,6 +37,7 @@ import { IconosPersonalizadosComponent } from './+components/iconos-personalizad
         MatFormFieldModule,
         MatDividerModule,
         FormsModule,
+        MatDatepickerModule,
         MatSelectModule,
         ReactiveFormsModule        
     ],
@@ -57,6 +58,7 @@ import { IconosPersonalizadosComponent } from './+components/iconos-personalizad
         MatBadgeModule,
         MatButtonToggleModule,
         MatDividerModule,
+        MatDatepickerModule,
         MatTooltipModule,
         MatIconModule,
         MatButtonModule,
