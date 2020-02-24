@@ -1,6 +1,9 @@
 <div class="card container-fluid">
     <form [formGroup]="form">
         <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+            <div class="row justify-content-end">
+                <button (click)="open_modal_add(true,0)" mat-raised-button style="background-color: #553c32; color: white" matTooltip="Crear nuevo"><mat-icon fontSet="fa" fontIcon="fa-plus-circle"></mat-icon> Agregar oficina</button>
+            </div>
 
             <div class="row justify-content-end">
 
@@ -24,17 +27,27 @@
                     <div class="mat-table__wrapper">
                         <mat-table class="lmat-elevation-z8" [dataSource]="listData" matSort>
 
-                            <ng-container matColumnDef="Area">
-                                <mat-header-cell *matHeaderCellDef mat-sort-header>Area</mat-header-cell>
-                                <mat-cell *matCellDef="let lesson;">{{lesson.Area}}</mat-cell>
+                            <ng-container matColumnDef="codigo">
+                                <mat-header-cell *matHeaderCellDef mat-sort-header>Codigo</mat-header-cell>
+                                <mat-cell *matCellDef="let lesson;">{{lesson.codOficina}}</mat-cell>
                             </ng-container>
 
-                            <ng-container matColumnDef="Responsable">
-                                <mat-header-cell *matHeaderCellDef mat-sort-header>Responsable</mat-header-cell>
-                                <mat-cell *matCellDef="let lesson;">{{lesson.Responsable}}</mat-cell>
+                            <ng-container matColumnDef="nombre">
+                                <mat-header-cell *matHeaderCellDef mat-sort-header>Nombre</mat-header-cell>
+                                <mat-cell *matCellDef="let lesson;">{{lesson.nombre}}</mat-cell>
                             </ng-container>
 
-                            <ng-container matColumnDef="Activo">
+                            <ng-container matColumnDef="iniciales">
+                                <mat-header-cell *matHeaderCellDef mat-sort-header>Iniciales</mat-header-cell>
+                                <mat-cell *matCellDef="let lesson;">{{ lesson.iniciales }}</mat-cell>
+                            </ng-container>
+
+                            <ng-container matColumnDef="ubicacion">
+                                <mat-header-cell *matHeaderCellDef mat-sort-header>Activo</mat-header-cell>
+                                <mat-cell *matCellDef="let lesson;">{{ lesson.Activo }}</mat-cell>
+                            </ng-container>
+
+                            <ng-container matColumnDef="fecha">
                                 <mat-header-cell *matHeaderCellDef mat-sort-header>Activo</mat-header-cell>
                                 <mat-cell *matCellDef="let lesson;">{{ lesson.Activo }}</mat-cell>
                             </ng-container>
@@ -64,12 +77,12 @@
                             <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
 
                             <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
-                            <mat-footer-row *matFooterRowDef="['noData']" [ngClass]="{'hide': !(listData!=null && listData.data.length==0)}"></mat-footer-row>
+                            <mat-footer-row *matFooterRowDef="['noData']" [ngClass]="{'hide': !(listData!=null && listData.data.length===0)}"></mat-footer-row>
                         </mat-table>
                     </div>
                     <!-- start: BOTTOM -->
                     <div class="mat-table__bottom">
-                        <mat-paginator [pageSizeOptions]="[5, 10, 50, 100, 200]" [pageSize]="5" showFirstLastButtons></mat-paginator>
+                        <mat-paginator [pageSizeOptions]="[5, 10]" [pageSize]="5" showFirstLastButtons></mat-paginator>
                     </div>
                 </div>
             </div>

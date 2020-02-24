@@ -19,7 +19,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './login/register.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-
+import { JwtInterceptor } from './shared/+interceptors/jwt.interceptor';
 
 @NgModule({
   declarations: [
@@ -38,7 +38,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ServiceModule,
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

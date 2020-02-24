@@ -21,7 +21,9 @@ import { BandejaComponent } from './bandeja/bandeja.component';
 import { ReportesComponent } from './reportes/reportes.component';
 import { ConsultasComponent } from './consultas/consultas.component';
 import { UsuarioListComponent } from './usuario/usuario-list/usuario-list.component';
-import { UsuarioAddUpdateComponent } from './usuario/usuario-add-update/usuario-add-update.component';
+// import { UsuarioAddUpdateComponent } from './usuario/usuario-add-update/usuario-add-update.component';
+import { OficinaListComponent } from './oficina/oficina-list/oficina-list.component';
+// import { OficinaAddUpdateComponent } from './oficina/oficina-add-update/oficina-add-update.component';
 
 
 @NgModule({
@@ -40,8 +42,8 @@ import { UsuarioAddUpdateComponent } from './usuario/usuario-add-update/usuario-
       BandejaComponent,
       ReportesComponent,
       ConsultasComponent,
-      UsuarioListComponent,
-      UsuarioAddUpdateComponent,
+      UsuarioListComponent,      
+      OficinaListComponent,
   ],
   exports: [
     DashboardInicioComponent,

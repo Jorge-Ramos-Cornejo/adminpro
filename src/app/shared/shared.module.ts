@@ -18,6 +18,8 @@ import {FormsModule, ReactiveFormsModule
 // components
 import { BotonOpcionesComponent } from './+components/boton-opciones/boton-opciones.component';
 import { IconosPersonalizadosComponent } from './+components/iconos-personalizados/iconos-personalizados.component';
+import { UsuarioAddUpdateComponent } from 'src/app/pages/usuario/usuario-add-update/usuario-add-update.component';
+import { OficinaAddUpdateComponent } from 'src/app/pages/oficina/oficina-add-update/oficina-add-update.component';
 
 @NgModule({
     imports: [
@@ -47,7 +49,9 @@ import { IconosPersonalizadosComponent } from './+components/iconos-personalizad
         BreadcrumbsComponent,
         NopagefoundComponent,
         BotonOpcionesComponent,
-        IconosPersonalizadosComponent
+        IconosPersonalizadosComponent,
+        UsuarioAddUpdateComponent,
+        OficinaAddUpdateComponent
     ],
     exports: [
         HeaderComponent,
@@ -72,7 +76,13 @@ import { IconosPersonalizadosComponent } from './+components/iconos-personalizad
         MatSelectModule,
         FormsModule,
         ReactiveFormsModule,
-        BotonOpcionesComponent
+        BotonOpcionesComponent,
+        UsuarioAddUpdateComponent,
+        OficinaAddUpdateComponent
+    ],
+    entryComponents: [
+        UsuarioAddUpdateComponent,
+        OficinaAddUpdateComponent
     ]
 })
 

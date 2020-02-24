@@ -39,7 +39,7 @@ export class ReportesComponent implements OnInit {
   filtroFechaInicio: string;
   filtroFechaFin: string;
 
-  constructor() { }
+  constructor(private datePipe: DatePipe) { }
 
   ngOnInit() {
     try {

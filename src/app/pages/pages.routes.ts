@@ -14,6 +14,7 @@ import { ReportesComponent } from './reportes/reportes.component';
 import { ConsultasComponent } from './consultas/consultas.component';
 import { AuthGuard } from '../shared/+guards/auth.guard';
 import { UsuarioListComponent } from './usuario/usuario-list/usuario-list.component';
+import { OficinaListComponent } from './oficina/oficina-list/oficina-list.component';
 
 const pagesRoutes: Routes = [
     {path: '',
@@ -27,6 +28,7 @@ const pagesRoutes: Routes = [
           {path: 'newExpediente', component: NewExpdienteComponent, data: {titulo: 'Nuevo expediente'}},
           {path: 'profile', component: ProfileComponent, data: {titulo: 'Profile'}},
           {path: 'usuarios', component: UsuarioListComponent, data: {titulo: 'Usuarios'}},
+          {path: 'oficinas', component: OficinaListComponent, data: {titulo: 'Oficinas'}},
           {path: 'progress', component: ProgressComponent, data: {titulo: 'Progress'}},
           {path: 'graficas1', component: Graficas1Component, data: {titulo: 'Graficas'}},
           {path: 'promesas', component: PromesasComponent, data: {titulo: 'Promesas'}},

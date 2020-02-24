@@ -40,6 +40,13 @@ export class SidebarService {
       submenu: [
       ]
     },
+    {
+      titulo: 'Oficinas',
+      icono: 'mdi mdi-gauge',
+      url: '/oficinas',
+      submenu: [
+      ]
+    },
   ];
   constructor() { }
 }
