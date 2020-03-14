@@ -10,7 +10,7 @@ import { RouterModule } from '@angular/router';
 
 import {MatFormFieldModule, MatInputModule, MatToolbarModule,
 MatTableModule, MatPaginatorModule, MatProgressSpinnerModule,
-MatButtonModule, MatIconModule, MatTooltipModule, MatButtonToggleModule,
+MatButtonModule, MatIconModule, MatTooltipModule, MatButtonToggleModule, MatRadioGroup, MatRadioModule,
 MatBadgeModule, MatExpansionModule, MatSelectModule, MatDividerModule, MatDatepickerModule} from '@angular/material';
 import {FormsModule, ReactiveFormsModule
 } from '@angular/forms';
@@ -20,14 +20,18 @@ import { BotonOpcionesComponent } from './+components/boton-opciones/boton-opcio
 import { IconosPersonalizadosComponent } from './+components/iconos-personalizados/iconos-personalizados.component';
 import { UsuarioAddUpdateComponent } from 'src/app/pages/usuario/usuario-add-update/usuario-add-update.component';
 import { OficinaAddUpdateComponent } from 'src/app/pages/oficina/oficina-add-update/oficina-add-update.component';
+import { BlockUIModule } from 'ng-block-ui';
+import { AlertModule } from 'ngx-alerts';
 
 @NgModule({
     imports: [
         RouterModule,
         CommonModule,
         MatInputModule,
+        BlockUIModule.forRoot(),
         MatBadgeModule,
         MatButtonToggleModule,
+        MatRadioModule,
         MatTooltipModule,
         MatProgressSpinnerModule,
         MatPaginatorModule,
@@ -41,7 +45,9 @@ import { OficinaAddUpdateComponent } from 'src/app/pages/oficina/oficina-add-upd
         FormsModule,
         MatDatepickerModule,
         MatSelectModule,
-        ReactiveFormsModule        
+        ReactiveFormsModule,
+        AlertModule.forRoot({ maxMessages: 5, timeout: 5000, position: 'right' }),
+        
     ],
     declarations: [
         HeaderComponent,
@@ -61,12 +67,14 @@ import { OficinaAddUpdateComponent } from 'src/app/pages/oficina/oficina-add-upd
         MatInputModule,
         MatBadgeModule,
         MatButtonToggleModule,
+        MatRadioModule,
         MatDividerModule,
         MatDatepickerModule,
         MatTooltipModule,
         MatIconModule,
         MatButtonModule,
         MatExpansionModule,
+        AlertModule,
         CommonModule,
         MatProgressSpinnerModule,
         MatPaginatorModule,
@@ -78,7 +86,8 @@ import { OficinaAddUpdateComponent } from 'src/app/pages/oficina/oficina-add-upd
         ReactiveFormsModule,
         BotonOpcionesComponent,
         UsuarioAddUpdateComponent,
-        OficinaAddUpdateComponent
+        OficinaAddUpdateComponent,
+        BlockUIModule
     ],
     entryComponents: [
         UsuarioAddUpdateComponent,

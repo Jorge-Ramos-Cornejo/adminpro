@@ -18,6 +18,11 @@ export class NewExpdienteComponent implements OnInit {
     {value: 2, label: 'Juridica'}
   ];
 
+  TipoDocumento = [
+    {value: 1, label: 'DNI'},
+    {value: 2, label: 'CARNET DE EXTRANJERIA'}
+  ];
+
   expTiposDocumento: Array<any> = [];
   constructor(private tramiteService: TramiteService) { }
 

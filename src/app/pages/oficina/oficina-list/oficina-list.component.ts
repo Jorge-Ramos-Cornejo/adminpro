@@ -21,12 +21,12 @@ export class OficinaListComponent implements OnInit {
   form: FormGroup;
   @BlockUI() blockUI: NgBlockUI;
   listData: MatTableDataSource<Oficina>;
-  displayedColumns: string[] = ['codigo', 'nombre', 'iniciales', 'ubicacion', 'fecha'];
+  displayedColumns: string[] = ['codigo', 'nombre', 'iniciales', 'ubicacion', 'fecha', 'actions'];
   @ViewChild(MatPaginator, {static: false}) paginator: MatPaginator;
 
   constructor(
     private oficinaService: OficinaService,
-    private dialog: MatDialog,) { }
+    private dialog: MatDialog) { }
 
   async ngOnInit() {
     try {
@@ -65,8 +65,10 @@ export class OficinaListComponent implements OnInit {
   async open_modal_add(estado, valor) {
     const ref = this.dialog.open(OficinaAddUpdateComponent, {
       data: {
+        title: estado ? 'Registrar Oficina' : 'Editar Oficina',
+        codOficina: valor
       },
-      width: '40%',
+      width: '35%',
       disableClose: true
     });
 
@@ -80,10 +82,15 @@ export class OficinaListComponent implements OnInit {
     this.subs.add(
       ref.afterClosed().subscribe(resp => {
         if (resp) {
-          
+
         }
       })
     );
+  }
+  
+  searchTable() {
+    const searchKey = this.form.controls['searchKey'].value;
+    this.listData.filter = searchKey.trim().toLowerCase();
   }
 
 }

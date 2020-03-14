@@ -1,67 +1,76 @@
 import { Component, OnInit } from '@angular/core';
-declare function init_plugins();
+import { FormControl, FormGroup } from '@angular/forms';
+import { MatTableDataSource } from '@angular/material';
+
+
+
 @Component({
   selector: 'app-consultas',
   templateUrl: './consultas.component.html',
   styleUrls: ['./consultas.component.scss']
 })
 export class ConsultasComponent implements OnInit {
-  menu: Menu[] = [
-    {
-      titulo: 'Dashboard',
-      icono: 'mdi mdi-gauge',
-      url: '/dashboard',
-      submenu: [
-      ]
-    },
-    {
-      titulo: 'Bandeja',
-      icono: 'mdi mdi-gauge',
-      url: '/bandeja',
-      submenu: [
-      ]
-    },
-    {
-      titulo: 'Consultas',
-      icono: 'mdi mdi-gauge',
-      url: '/consultas',
-      submenu: [
-      ]
-    },
-    {
-      titulo: 'Reportes',
-      icono: 'mdi mdi-gauge',
-      url: '/reportes',
-      submenu: [
-      ]
-    },
-       {
-      titulo: 'Principal',
-      icono: 'mdi mdi-gauge',
-      submenu: [
-        // {titulo: 'Dashboard', url: '/dashboard'},
-        {titulo: 'ProgressBar', url: '/progress'},
-        {titulo: 'Promesas', url: '/promesas'},
-        {titulo: 'Rxjs', url: '/rxjs'},
-        {titulo: 'Gráficas', url: '/graficas1'}
-      ]
-    }
-  ]
-  constructor() {init_plugins(); }
+  TiposConsultaReal: Array<any> = [    
+    { value: 1, viewValue: 'ESTADO TRAMITE', disabled: false },
+    { value: 2, viewValue: 'EXPEDIENTE', disabled: false },
+    { value: 3, viewValue: 'OBLIGADO', disabled: false }
+  ];
+  form: FormGroup;
+
+  ColumnsExpediente: string[] = ['tramite', 'glosa', 'estado', 'opciones'];
+  listDataConsulta: MatTableDataSource<any> = new MatTableDataSource([]);
+  listDataMovimientos: MatTableDataSource<any> = new MatTableDataSource([]);
+  ColumnsMovimientos: string[] = ['oficinaO', 'usuarioO', 'OficinaD', 'usuarioD', 'estado'];
+  ColumnsConsulta: string[] = ['tramite', 'glosa', 'codObligado',  'estado'];
+
+  expandedElement: PeriodicElement | null;
+  ArrayRows = [];
+
+  constructor() { }
 
   ngOnInit() {
-    
+    this.buildForm();
+  }
+
+  buildForm() {
+    this.form = new FormGroup({
+      buscar : new FormControl(''),
+      buscarConsulta: new FormControl(''),
+      tipoConsulta: new FormControl(1),
+      estado: new FormControl('')
+    });
+  }
+
+  getCssClassBy_Criticidad(estado: string): string {
+    const estadoTramite = estado.toUpperCase();
+    if(estado === 'TRAMITE') {
+        return 'default';
+    }
+    if(estado === 'PROCESO') {
+      return 'success';
+    }
+    if(estado === 'DERIVADO') {
+      return 'info';
+    }
+    if(estado === 'FINALIZADO') {
+      return 'danger';
+    }
+  }
+
+
+  loadMovimientosConsulta(element) {
+
+  }
+
+  select_row(row) {
+    this.ArrayRows = [];
+    this.ArrayRows.push(row);
   }
 
 }
 
-export interface Menu {
-  titulo: string;
-  icono: string;
-  url?: string;
-  submenu: SubMenu[]
-}
-export interface SubMenu {
-  titulo: string;
-  url: string;
-}
+
+export interface PeriodicElement {
+  tramite: string;
+  glosa: string;
+ }

@@ -30,6 +30,7 @@
     "moment": "^2.24.0",
     "ng-block-ui": "^2.1.8",
     "ng2-charts": "^2.3.0",
+    "ngx-alerts": "^4.0.0",
     "rxjs": "~6.4.0",
     "subsink": "^1.0.1",
     "sweetalert2": "^9.7.2",

@@ -1,14 +1,77 @@
 <h2 mat-dialog-title cdkDrag cdkDragRootElement=".cdk-overlay-pane" cdkDragHandle>
-    <mat-icon>chrome_reader_mode</mat-icon> Cobrar Tramite
+    <mat-icon>chrome_reader_mode</mat-icon> {{title}}
 </h2>
 <div mat-dialog-content>
     <form [formGroup]="form" novalidate>
-        <div class="row">
+        <div class="row mt-3">
             <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                <mat-form-field class="full-width">
+                    <input matInput maxlength="4" placeholder="Codigo" formControlName="codigo" autocomplete="off" [readOnly]="updateButton">
+                    <mat-error> Codigo <strong>es obligatorio.</strong>
+                    </mat-error>
+                    <mat-hint align="start" *ngIf="!nombreInput.value">Por Favor ingrese <strong>Codigo</strong>
+                    </mat-hint>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                <mat-form-field class="full-width">
+                    <input matInput maxlength="50" placeholder="Nombre" formControlName="nombre" autocomplete="off">
+                    <mat-error> Nombre <strong>es obligatorio.</strong>
+                    </mat-error>
+                    <mat-hint align="start" *ngIf="!nombreInput.value">Por Favor ingrese <strong>Nombre</strong>
+                    </mat-hint>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                <mat-form-field class="full-width">
+                    <input matInput placeholder="Inciales" formControlName="iniciales" autocomplete="off" maxlength="10">
+                    <mat-error> Iniciales <strong>es obligatorio.</strong>
+                    </mat-error>
+                    <mat-hint align="start" *ngIf="!inicialesInput.value">Por Favor ingrese <strong>Iniciales</strong>
+                    </mat-hint>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                <mat-form-field class="full-width">
+                    <input matInput placeholder="Ubicacion" formControlName="ubcacion" autocomplete="off" maxlength="1">
+                    <mat-error> Ubicacion <strong>es obligatorio.</strong>
+                    </mat-error>
+                    <mat-hint align="start" *ngIf="!inicialesInput.value">Por Favor ingrese <strong>Ubicacion</strong>
+                    </mat-hint>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                <mat-form-field class="full-width">
+                    <textarea formControlName="observaciones" matInput placeholder="Observaciones" maxlength="30"></textarea>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row mt-3 justify-content-end">
+            <!-- <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                 <button type="button" mat-raised-button style="background-color: #2957a4; color: white; float: right;" (click)="agregar()">
                     Agregar
                 </button>
-            </div>
+            </div> -->
+
+            <button type="button" mat-button (click)="resetForm()"><mat-icon fontSet="fa" fontIcon="fa-broom"></mat-icon>&nbsp;Limpiar</button>&nbsp;
+            <button (click)="agregar()" mat-raised-button style="background-color: #da0100; color: white">
+                  <mat-icon fontSet="fa" fontIcon="fa-save"></mat-icon>
+                  <span *ngIf="updateButton == false ">                      
+                      <span>Registrar</span>&nbsp;
+                  </span>
+                  <span *ngIf="updateButton == true">
+                      <span>Actualizar</span>&nbsp;
+                  </span>
+              </button>
+
         </div>
     </form>
 </div>

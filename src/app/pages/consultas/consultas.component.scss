@@ -1,34 +1,38 @@
-.inbox-panel .list-group .list-group-item {
-    border: 0px;
-    border-radius: 0px;
-    border-left: 3px solid transparent;
+.class-table {
+    width: 100%;
+    margin: 0 8px;
 }
 
-.inbox-panel .list-group .list-group-item a {
-    color: #67757c;
+td,
+th {
+    width: 5%;
 }
 
-.inbox-panel .list-group .list-group-item.active,
-.inbox-panel .list-group .list-group-item:hover {
-    background: #e9edf2;
-    border-left: 3px solid #398bf7;
+tr.example-detail-row {
+    height: 0;
 }
 
-.inbox-panel {
-    .list-group {
-        .list-group-item {
-            border: 0px;
-            border-radius: 0px;
-            border-left: 3px solid transparent;
-            a {
-                color: #67757c;
-            }
-            &.active,
-            &:hover {
-                background: #e9edf2;
-                border-left: 3px solid #398bf7;
-            }
-            &:hover {}
-        }
-    }
+tr.example-element-row:not(.example-expanded-row):hover {
+    background: #f5f5f5;
+}
+
+tr.example-element-row:not(.example-expanded-row):active {
+    background: #efefef;
+}
+
+.example-element-row td {
+    border-bottom-width: 0;
+}
+
+.example-element-detail {
+    overflow: hidden;
+    display: flex;
+}
+
+.mat-card {
+    margin-bottom: 4px;
+}
+
+td.mat-cell {
+    padding: 3px;
 }

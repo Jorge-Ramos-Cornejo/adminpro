@@ -1,50 +1,103 @@
-<div class="container-fluid">
-    <div class="row card">
-        <div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3">
-            <div class="card-body scroll-sidebar">
-                <nav class="sidebar-nav">
-                    <ul id="sidebarnav">
-                        <li *ngFor="let menu of menu">
-                            <a class="has-arrow waves-effect waves-dark" aria-expanded="false" *ngIf="menu.submenu.length>0 ? true : false"><i [class]="menu.icono"></i><span class="hide-menu">{{menu.titulo}} <span class="label label-rouded label-themecolor pull-right">{{menu.submenu.length}}</span></span></a>
-                            <a class="waves-effect waves-dark" aria-expanded="false" *ngIf="menu.submenu.length===0 ? true : false"><i [class]="menu.icono"></i><span class="hide-menu">{{menu.titulo}} 
-                                </span></a>
-                            <ul aria-expanded="false" class="collapse">
+<form [formGroup]="form" novalidate>
+    <div class="col-12 col-md-12 col-sm-12 col-lg-12 col-xl-12">
+        <div class="row" style="margin: 0 8px;">
+            <h4>Lista de expedientes</h4>
+        </div>
+        <div class="row">
+            <mat-radio-group mat-stretch-tabs aria-label="Seleccione consulta" formControlName="tipoConsulta" (change)="onfiltroChange()">
+                <mat-radio-button style="margin: 5px;" *ngFor="let tipo of TiposConsultaReal, let i=index" [value]="tipo.value">
+                    {{ tipo.viewValue }}</mat-radio-button>
+            </mat-radio-group>
+        </div>
+        <div class="row justify-content-center">
+            <div class="class-table mat-elevation-z8">
+                <table mat-table [dataSource]="listDataConsulta" matSort multiTemplateDataRows>
 
-                                <li *ngFor="let submenu of menu.submenu">
-                                    <a [routerLink]="[submenu.url]" routerLinkActive="active">{{submenu.titulo}} </a>
-                                </li>
-                            </ul>
-                        </li>
+                    <ng-container matColumnDef="tramite">
+                        <th mat-header-cell *matHeaderCellDef>N° Expediente</th>
+                        <td mat-cell *matCellDef="let lesson">{{lesson.expediente}}</td>
+                    </ng-container>
 
-                    </ul>
-                </nav>
-                <!-- <ul class="list-group list-group-full">
+                    <ng-container matColumnDef="glosa">
+                        <th mat-header-cell *matHeaderCellDef> Nombre Tramite </th>
+                        <td mat-cell *matCellDef="let lesson">{{lesson.nombreCodTramite}}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="codObligado">
+                        <th mat-header-cell *matHeaderCellDef> Tramitante </th>
+                        <td mat-cell *matCellDef="let lesson">{{lesson.codObligado}}</td>
+                    </ng-container>
 
-                    <li class="list-group-item active">
-                        <a href="javascript:void(0)"><i class="mdi mdi-gmail"></i> Inbox
-                        <span class="badge badge-success ml-auto">6</span> </a>
-                        <ul aria-expanded="false" class="collapse">
-                            <li>
-                                <a routerLink="[submenu.url]" routerLinkActive="active">sdds </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="javascript:void(0)"> <i class="mdi mdi-star"></i> Starred </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="javascript:void(0)"> <i class="mdi mdi-send"></i> Draft </a><span class="badge badge-danger ml-auto">3</span></li>
-                    <li class="list-group-item ">
-                        <a href="javascript:void(0)"> <i class="mdi mdi-file-document-box"></i> Sent Mail </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="javascript:void(0)"> <i class="mdi mdi-delete"></i> Trash </a>
-                    </li>
-                </ul> -->
+
+                    <ng-container matColumnDef="estado">
+                        <th mat-header-cell *matHeaderCellDef> Estado </th>
+                        <td mat-cell *matCellDef="let lesson">
+                            <span class="m-badge m-badge--{{ getCssClassBy_Criticidad(lesson.nombreEstadoTramite) }} m-badge--wide">
+                            {{lesson.nombreEstadoTramite | titlecase}}
+                          </span>
+                        </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="expandedDetail">
+                        <td mat-cell *matCellDef="let element" [attr.colspan]="ColumnsExpediente.length">
+                            <div class="example-element-detail" [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
+                                <div class="col-12 col-md-12 col-sm-12 col-lg-12 col-xl-12">
+                                    <br>
+                                    <mat-table class="mat-elevation-z0 " [dataSource]="listDataMovimientos" matSort>
+
+                                        <ng-container matColumnDef="oficinaO">
+                                            <mat-header-cell *matHeaderCellDef mat-sort-header>Ofic. Origen</mat-header-cell>
+                                            <mat-cell *matCellDef="let lesson">{{(lesson.nombreOficinaOrigen.toLowerCase())}}</mat-cell>
+                                        </ng-container>
+
+                                        <ng-container matColumnDef="usuarioO">
+                                            <mat-header-cell *matHeaderCellDef mat-sort-header>Usu. Origen</mat-header-cell>
+                                            <mat-cell *matCellDef="let lesson">{{lesson.nombreUsuarioOrigen}}</mat-cell>
+                                        </ng-container>
+
+                                        <ng-container matColumnDef="OficinaD">
+                                            <mat-header-cell *matHeaderCellDef mat-sort-header>Ofic. Destino</mat-header-cell>
+                                            <mat-cell *matCellDef="let lesson">{{(lesson.nombreOficinaDestino.toLowerCase())}}</mat-cell>
+                                        </ng-container>
+
+                                        <ng-container matColumnDef="usuarioD">
+                                            <mat-header-cell *matHeaderCellDef mat-sort-header>Usu. Destino</mat-header-cell>
+                                            <mat-cell *matCellDef="let lesson">{{lesson.nombreUsuarioDestino}}</mat-cell>
+                                        </ng-container>
+
+                                        <ng-container matColumnDef="estado">
+                                            <mat-header-cell *matHeaderCellDef mat-sort-header>Estado</mat-header-cell>
+                                            <mat-cell *matCellDef="let lesson">
+                                                <span class="m-badge m-badge--{{ getCssClassBy_Criticidad(lesson.nombreEstadoTramite) }} m-badge--wide">
+                                  {{lesson.nombreEstadoTramite | titlecase}}
+                                </span>
+                                            </mat-cell>
+                                        </ng-container>
+
+                                        <mat-header-row *matHeaderRowDef="ColumnsMovimientos"></mat-header-row>
+
+                                        <mat-row class="card" style="padding: 0;" *matRowDef="let row; columns: ColumnsMovimientos;" (click)="select_row(row)" [style.background]="ArrayRows.indexOf(row) != -1 ? 'lightblue' : ''">
+                                            <!-- <mat-row *matRowDef="let row; columns: ColumnsPreferencial;"> -->
+                                        </mat-row>
+                                    </mat-table>
+
+                                    <br>
+                                </div>
+                            </div>
+                        </td>
+                    </ng-container>
+
+                    <tr mat-header-row *matHeaderRowDef="ColumnsConsulta"></tr>
+
+                    <tr mat-row *matRowDef="let element; columns: ColumnsConsulta;" class="example-element-row" [class.example-expanded-row]="expandedElement === element" (click)="loadMovimientosConsulta(element); ">
+                    </tr>
+                    <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
+                </table>
+                <br>
+                <div class="mat-table__bottom">
+                    <mat-paginator [pageSizeOptions]="[5]" [pageSize]="5" showFirstLastButtons></mat-paginator>
+                </div>
             </div>
         </div>
-        <div class="col-12 col-sm-12 col-md-9 col-lg-9 col-xl-9">
-
-        </div>
     </div>
-</div>
+
+</form>

@@ -2,7 +2,8 @@
     <form [formGroup]="form">
         <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
             <div class="row justify-content-end">
-                <button (click)="open_modal_add(true,0)" mat-raised-button style="background-color: #553c32; color: white" matTooltip="Crear nuevo"><mat-icon fontSet="fa" fontIcon="fa-plus-circle"></mat-icon> Agregar oficina</button>
+                <button (click)="open_modal_add(true,'0')" mat-raised-button style="background-color: #553c32; color: white" matTooltip="Crear nuevo">
+                  <mat-icon fontSet="fa" fontIcon="fa-plus-circle" style="display: contents;"></mat-icon> Agregar oficina</button>
             </div>
 
             <div class="row justify-content-end">
@@ -43,13 +44,13 @@
                             </ng-container>
 
                             <ng-container matColumnDef="ubicacion">
-                                <mat-header-cell *matHeaderCellDef mat-sort-header>Activo</mat-header-cell>
-                                <mat-cell *matCellDef="let lesson;">{{ lesson.Activo }}</mat-cell>
+                                <mat-header-cell *matHeaderCellDef mat-sort-header>Ubicacion</mat-header-cell>
+                                <mat-cell *matCellDef="let lesson;">{{ lesson.ubicacion }}</mat-cell>
                             </ng-container>
 
                             <ng-container matColumnDef="fecha">
-                                <mat-header-cell *matHeaderCellDef mat-sort-header>Activo</mat-header-cell>
-                                <mat-cell *matCellDef="let lesson;">{{ lesson.Activo }}</mat-cell>
+                                <mat-header-cell *matHeaderCellDef mat-sort-header>Fecha</mat-header-cell>
+                                <mat-cell *matCellDef="let lesson;">{{ lesson.fechaRegistro | date }}</mat-cell>
                             </ng-container>
 
                             <ng-container matColumnDef="actions">
@@ -57,7 +58,7 @@
                                     Actions
                                 </mat-header-cell>
                                 <mat-cell *matCellDef="let lesson;">
-                                    <button style="color: #553c32 !important" (click)="open_modal_add(false,lesson.Area)" mat-icon-button color="primary" matTooltip="Editar Unidad Operativa">
+                                    <button style="color: #553c32 !important" (click)="open_modal_add(false,lesson.codOficina)" mat-icon-button color="primary" matTooltip="Editar oficina">
                                       <mat-icon>create</mat-icon>
                                   </button>&nbsp;
 

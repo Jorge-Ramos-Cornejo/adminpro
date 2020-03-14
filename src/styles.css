@@ -27,3 +27,16 @@ body {
 .container-message {
     z-index: 2147483627;
 }
+
+[mat-dialog-title] {
+    margin: -24px -24px 0px -24px !important;
+    padding: 10px 24px;
+    background: #2957a4;
+    color: #fff;
+    cursor: move;
+}
+
+.fa {
+    align-items: center !important;
+    display: inline-flex !important;
+}

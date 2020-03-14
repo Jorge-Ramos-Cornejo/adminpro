@@ -14,8 +14,8 @@
                                 <label class="title">Nombre:</label>
                             </div>
                             <div class="row">
-                                <label style="width:100%; word-wrap: break-word;">
-                      Jorge</label>
+                                <!-- <label style="width:100%; word-wrap: break-word;">
+                      Jorge</label> -->
                                 <!-- <label style="width:100%; word-wrap: break-word;">
                       {{ datosgenerales ? datosgenerales.nombres : '' }}</label -->
 
@@ -26,18 +26,18 @@
                             </div>
                             <div class="row">
                                 <label style="width:100%; word-wrap: break-word;">
-                        Ramos Cornejo
+                        <!-- Ramos Cornejo -->
                       <!-- {{ datosgenerales ? datosgenerales.apellidoPaterno : '' }}
                       {{ datosgenerales ? datosgenerales.apellidoMaterno : '' }} -->
                     </label>
                             </div>
                             <br />
                             <div class="row">
-                                <label class="title">Domicilio Fiscal:</label>
+                                <!-- <label class="title">Domicilio Fiscal:</label> -->
                             </div>
                             <div class="row">
                                 <label style="width:100%; word-wrap: break-word;">
-                        Calle Tacna N° 541
+                        <!-- Calle Tacna N° 541 -->
                       <!-- {{ datosgenerales ? datosgenerales.domFiscal : '' }} -->
                     </label>
                             </div>
@@ -85,7 +85,7 @@
                                                             <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
                                                                 <mat-form-field class="full-width">
                                                                     <mat-select placeholder="Tipo Documento (*)" formControlName="tipoDocumento">
-                                                                        <mat-option *ngFor="let item of TipoPersona" [value]="item.value">
+                                                                        <mat-option *ngFor="let item of TipoDocumento" [value]="item.value">
                                                                             {{ item.label }}
                                                                         </mat-option>
                                                                     </mat-select>

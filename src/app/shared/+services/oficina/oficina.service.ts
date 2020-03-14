@@ -4,6 +4,7 @@ import { map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { ResultadoBusqueda } from '../../+model/general/resultado-busqueda.model';
 import {Oficina} from 'src/app/shared/+model/oficina/oficina.model';
+import { OficinaList } from '../../+model/oficina/oficinaList.model';
 
 @Injectable({
   providedIn: 'root'
@@ -27,7 +28,7 @@ export class OficinaService {
 
   obtenerOficina(codigo) {
     return this.http
-    .get<Oficina>(`${this.API_URL}/ById?codOficina=${codigo}`)
+    .get<OficinaList>(`${this.API_URL}/ById?codOficina=${codigo}`)
       .toPromise();
   }
 
